@@ -1,0 +1,68 @@
+---
+title: "bolivar_CS101"
+author: "Angel Grace Bolivar"
+date: "2026-09-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+## exponent
+a <-17
+b <- 5
+a + b
+a - b
+a * b
+a / b
+```
+```{r}
+## modulus
+a <- 17
+b <- 5
+a && b
+```
+```{r}
+## integer division
+a <- 17
+b <- 5
+a %/% b
+```
+```{r}
+## PART B
+typeof(x)
+typeof(y)
+typeof(z)
+typeof(w)
+typeof(v)
+```
+
+```{r}
+classof(x)
+classof(y)
+classof(z)
+classof(w)
+classof(v)
+```
+
+
+```{r}
+x <- 42
+y <- 42L
+z <- "42"
+w <- TRUE
+v <- 3 + 2i
+```
+```{r}
+## Question3
+x <- 42
+y <- 42L
+typeof(x)
+typeof(y)
+
+## they are different because 42 is double while the 42L is integer. the L tells R to store the number specifically as an integers
+```
+
+
