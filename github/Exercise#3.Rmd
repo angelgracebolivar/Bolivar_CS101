@@ -1,0 +1,257 @@
+---
+title: "Exercise#3"
+output: html_document
+date: "2026-10-16"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+PART A
+```{r}
+# Part A — Creating Vectors: c(), seq(), rep()
+
+# TODO 1 & 2
+scores <- c(88, 92, 79, 95, 84)
+subjects <- c("Math", "Science", "English", "History", "PE")
+```
+```{r}
+# TODO 3 & 4
+odds <- seq(1, 19, by = 2)
+seq(0, 1, length.out = 5)
+```
+
+```{r}
+# TODO 5, 6, & 7:
+rep("A", 4)
+rep(c("A", "B"), each = 2)
+rep(c("A", "B"), times = 2)
+```
+
+```{r}
+# Question 1: Setup age vector
+age <- c(15, 28, 32, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 12, 42, 53, 41, 51, 35, 24, 33, 8)
+
+# a. How many data points?
+length(age)
+
+# b. Find the reciprocal of age
+1 / age
+
+# c. Create new_age
+new_age <- c(age, 0, age)
+
+# d. Minimum and maximum values
+min(age)
+max(age)
+```
+a. How many data points?
+There are 34 data points in the `age` vector.
+
+b. Find the reciprocal of age?  
+Running `1 / age` calculates the reciprocal of each age value, producing decimals between 0.0175 and 0.125.
+
+c. Assign also `new_age <- c(age, 0, age)`. What happens to `new_age`?
+The `new_age` vector combines the original ages, a single `0` in the middle, and the ages again at the end for a total of 69 data points.
+
+d. Find the minimum and the maximum value of age.  
+The minimum value is 8 and the maximum value is 57.
+
+Question 2:
+`each` repeats every individual element sequentially before moving to the next (e.g., "A" "A" "B" "B"), whereas `times` repeats the whole sequence as a single unit from start to finish (e.g., "A" "B" "A" "B").
+
+```{r}
+# Question 3: Demonstrate by vs length.out
+seq(1, 20, by = 2)
+seq(1, 20, length.out = 5)
+```
+by sets the distance between each number (step size), while length.out sets the total amount of numbers you want.
+
+Use by when you need specific intervals, and length.out when you need a specific number of values spread evenly between two points.
+
+```{r}
+# Question 4: Create sequence and perform calculations
+vec_num <- 20:60
+
+# b. Mean
+mean(vec_num)
+
+# c. Sum
+sum(vec_num)
+
+# d. Length (data points count)
+length(vec_num)
+```
+a. Generate sequence:
+  `vec_num <- 20:60`
+
+b. Mean for `vec_num`:
+  The mean of `vec_num` is **40**.
+
+c .Sum for `vec_num`:
+  The sum of `vec_num` is **1640**.
+
+d. How many data points are there in `vec_num`?
+  There are **41** data points in `vec_num`.
+
+
+PART B  
+```{r}
+# Part B
+grades <- c(88, 92, 79, 95, 84)
+names(grades) <- c("Math", "Science", "English", "History", "PE")
+
+# 3rd element
+grades[3]
+
+# 1st and 4th elements
+grades[c(1, 4)]
+
+# Science and PE
+grades[c("Science", "PE")]
+
+# Except 1st and 4th
+grades[-c(1, 4)]
+
+# Greater than or equal to 85
+grades[grades >= 85]
+```
+
+Question 5: Use negative indexing to drop a specific known row or outlier (like data[-1]), and use logical indexing to filter data by a condition when positions are unknown (like grades[grades >= 85]).
+
+Question 6: Running grades[10] returns NA to represent missing data instead of throwing an error, allowing code to continue executing smoothly.
+
+```{r}
+#Question 7:
+Filter(function(i) { all(i %% c(3,5,7) != 0) }, seq(100))
+```
+[1]  1  2  4  8 11 13 16 17 19 22 23 26 29 31 32 34 37 38 41 43 44 46 47 52 53 58
+
+PART C
+```{r}
+x <- c(1, 2, 3, 4)
+y <- c(10, 20, 30, 40)
+
+# Add x and y element-wise
+x + y
+
+# Multiply every element of x by 2
+x * 2
+```
+
+```{r}
+z <- c(1, 2, 3, 4, 5, 6)
+short <- c(1, 0)
+
+# Add z and short together
+z + short
+```
+
+```{r}
+fruits <- c("apple", "banana", "cherry")
+
+# Add "date" to the end
+fruits <- append(fruits, "date")
+fruits
+
+# Insert "kiwi" after position 1
+fruits <- append(fruits, "kiwi", after = 1)
+fruits
+```
+
+```{r}
+# Question 8:
+x <- c(1, 2, 3, 4)
+y <- c(10, 20, 30, 40)
+
+# Add x and y element-wise
+x + y
+
+# Multiply x by 2
+x * 2
+```
+R repeated the shorter vector `short` (`1, 0`) three times to match the length of `z` (`6`), making it `1, 0, 1, 0, 1, 0`.
+
+```{r}
+# Question 9:
+# Adding z (length 6) and c(1, 0, 1) (length 3)
+z <- c(1, 2, 3, 4, 5, 6)
+z + c(1, 0, 1)
+
+# Adding z (length 6) and c(1, 0, 1, 1) (length 4)
+z + c(1, 0, 1, 1)
+```
+Adding z to c(1, 0, 1) recycles cleanly because 6 is a multiple of 3, whereas c(1, 0, 1, 1) warns because 6 is not a multiple of 4, showing R recycles silently only when lengths divide evenly.
+
+PART D
+```{r}
+# 1. Create the named list 'student'
+student <- list(
+  name = "Maria Santos",
+  age = 20,
+  grades = c(88, 92, 79),
+  is_enrolled = TRUE
+)
+
+# 2. Single bracket access and its class
+student["grades"]
+class(student["grades"])
+
+# 3. Double bracket access and its class
+student[["grades"]]
+class(student[["grades"]])
+
+# 4. Access 'name' using the $ operator
+student$name
+
+# 5. Extract the second grade in a single expression
+student[["grades"]][2]
+```
+
+```{r}
+# Question 10:
+class(student["grades"])    # Returns "list"
+class(student[["grades"]])  # Returns "numeric"
+```
+Single brackets `[ ]` return a sub-list containing the element, whereas double brackets `[[ ]]` extract the actual underlying data object directly out of the list.
+
+```{r}
+# Question 11:
+student["grades"]      
+student[["grades"]]    
+```
+R requires [[ ]] to extract individual elements out of a list because lists can hold complex, heterogenous data types, whereas vectors hold a single uniform type that can be accessed and sliced using only [ ]
+
+
+PART E
+```{r}
+# Define inventory list
+inventory <- list(
+  item = c("Notebook", "Pen", "Eraser"),
+  price = c(25.50, 10.00, 5.00),
+  in_stock = c(TRUE, TRUE, FALSE)
+)
+
+# 1. Print only the items currently in stock
+inventory$item[inventory$in_stock]
+
+# 2. Append "Ruler" (15.00, TRUE) to each vector
+inventory$item <- append(inventory$item, "Ruler")
+inventory$price <- append(inventory$price, 15.00)
+inventory$in_stock <- append(inventory$in_stock, TRUE)
+
+# Print updated inventory to display the output
+inventory
+```
+
+Question 12:
+First, `inventory$in_stock extracts` the logical vector c(TRUE, TRUE, FALSE).
+Next, inventory$item extracts the character vector c("Notebook", "Pen", "Eraser").
+Finally, passing the logical vector inside the square brackets inventory$item[...] evaluates each element by index position—keeping elements where the condition is TRUE ("Notebook" and "Pen") and dropping elements where it is FALSE ("Eraser").
+
+Question 13:
+Storing related data in separate vectors creates severe risks because modifying, sorting, or filtering one vector without updating the others causes index misalignment and permanently corrupts data associations. Grouping related variables into a list or data frame guarantees that item properties remain synchronized together as a unified dataset.
+
+Conclusion:
+Vectors are homogeneous data structures that hold elements of a single atomic type, whereas lists are heterogeneous and can store elements of varying types, shapes, and structures including other vectors or lists. You should choose a vector when working with uniform numeric or categorical datasets to perform fast, element-wise mathematical calculations and logical comparisons. Conversely, a list is the ideal choice when organizing complex, multi-attribute, or hierarchical data where individual variables differ in length or data type.
