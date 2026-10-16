@@ -9,29 +9,62 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+PART A — Arithmetic Operations
+
 ```{r}
-## exponent
-a <-17
-b <- 5
-a + b
-a - b
-a * b
-a / b
-```
-```{r}
-## modulus
+# Store values in variables
 a <- 17
 b <- 5
-a && b
+
+# Basic arithmetic operations
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
 ```
+
 ```{r}
-## integer division
-a <- 17
-b <- 5
-a %/% b
+# Modulus and integer division
+print(a %% b)
+print(a %/% b)
 ```
+
 ```{r}
-## PART B
+# Exponent
+print(2 ^ 10)
+```
+
+```{r}
+## Question 1:
+print(17 / 5)
+print(17 %% 5)
+print(17 %/% 5)
+
+## Answer:`17 / 5` gives 3.4 because it shows the decimal result. `17 %% 5` gives 2 because it shows the remainder. `17 %/% 5` gives 3 because it shows the whole-number result.
+```
+
+```{r}
+## Question 2:
+print(10 %% 3)
+print(10 %/% 3)
+
+## Answer: I predicted that `10 %% 3` would give 1 and `10 %/% 3` would give 3. My prediction was correct because 3 goes into 10 three whole times, leaving a remainder of 1.
+```
+
+
+PART B — Basic Data Types
+
+```{r}
+# Create variables
+x <- 42
+y <- 42L
+z <- "42"
+w <- TRUE
+v <- 3 + 2i
+```
+
+```{r}
+## check typeof()
 typeof(x)
 typeof(y)
 typeof(z)
@@ -39,30 +72,178 @@ typeof(w)
 typeof(v)
 ```
 
+
 ```{r}
-classof(x)
-classof(y)
-classof(z)
-classof(w)
-classof(v)
+## check class()
+class(x)
+class(y)
+class(z)
+class(w)
+class(v)
+```
+
+```{r}
+## check mode()
+mode(x)
+mode(y)
+mode(z)
+mode(w)
+mode(v)
+```
+
+```{r}
+## Question 3:
+print(typeof(x))
+print(typeof(y))
+
+## The variable `x` is stored as a double, which is R's default numeric type. The variable `y` is stored as an integer because the `L` suffix specifies an integer.
+```
+
+```{r}
+## Question 4:
+print(typeof(y))
+print(class(y))
+print(mode(y))
+
+## Answer: Yes, the results can be different. For `y`, `typeof()` and `class()` return `"integer"`, while `mode()` returns `"numeric"` because it groups integers under numeric values.
 ```
 
 
-```{r}
-x <- 42
-y <- 42L
-z <- "42"
-w <- TRUE
-v <- 3 + 2i
-```
-```{r}
-## Question3
-x <- 42
-y <- 42L
-typeof(x)
-typeof(y)
+PART C — Type Conversion
 
-## they are different because 42 is double while the 42L is integer. the L tells R to store the number specifically as an integers
+```{r}
+## Convert character to numeric
+num_string <- "123"
+
+converted_num <- as.numeric(num_string)
+
+print(converted_num)
+print(typeof(converted_num))
+print(class(converted_num))
+print(mode(converted_num))
 ```
 
+```{r}
+## Convert numbers to logical
+print(as.logical(0))
+print(as.logical(1))
+```
+
+```{r}
+## Convert numbers to logical
+bad_string <- "hello123"
+converted_bad <- as.numeric(bad_string)
+print(converted_bad)
+```
+
+```{r}
+## Question 5:
+## R gives a warning instead of stopping because it allows the program to continue running when a value cannot be converted. It uses `NA` to represent an unavailable value.
+## If I ignore warnings, I might not notice that a value became `NA`. This could cause incorrect calculations or results in my program.
+```
+
+```{r}
+## Question 6:
+print(as.logical(2))
+print(as.logical(-1))
+
+## I predict that both expressions will return `TRUE` because both numbers are nonzero.
+## Both expressions return `TRUE`. R converts zero to `FALSE` and nonzero numbers, whether positive or negative, to `TRUE`.
+```
+
+PART D — Strings, paste(), and paste0()
+
+```{r}
+## Print the first and last names
+first_name <- "Juan"
+last_name <- "Dela Cruz"
+
+print(first_name)
+print(last_name)
+
+cat(first_name, last_name)
+```
+
+```{r}
+## Combine names using paste() and paste0()
+full_name <- paste(first_name, last_name)
+full_name_no_space <- paste0(first_name, last_name)
+
+print(full_name)
+print(full_name_no_space)
+```
+
+```{r}
+## Join names with a dash
+print(paste(first_name, last_name, sep = "-"))
+```
+
+```{r}
+## Combine the name and age
+age <- 21
+
+print(paste0(full_name, " is ", age, " years old."))
+```
+
+```{r}
+## Question 7
+first_name <- "Juan"
+last_name <- "Dela Cruz"
+
+print(paste(first_name, last_name))
+print(paste0(first_name, last_name))
+
+##  `paste()` adds a space between the strings by default, while `paste0()` joins them without adding a separator.
+```
+
+```{r}
+## Question 8
+full_name <- "Juan Dela Cruz"
+age <- 21
+
+print(paste0(full_name, " is ", age, " years old."))
+
+## paste0()` combines the text and number into one string. It automatically converts the number `21` into text when combining them. The output is `"Juan Dela Cruz is 21 years old."`.
+```
+
+
+PART E — Critical Thinking Challenge
+
+```{r, error=TRUE}
+print("5" + 5) ## Predict and test
+```
+
+```{r}
+## Fix the code
+print(as.numeric("5") + 5)
+```
+
+```{r}
+## Question 9
+number_text <- "5"
+number <- as.numeric(number_text)
+
+print(number + 5)
+print(typeof(number))
+
+## Explicit conversion makes sure the value has the correct data type before performing calculations. The output is `10`, and the type of `number` is `"double"`. Without conversion, `"5" + 5` causes an error because `"5"` is text.
+```
+
+```{r}
+## Question 10
+numbers <- c("10", "20", "30")
+
+print(typeof(numbers))
+
+numbers_numeric <- as.numeric(numbers)
+
+print(typeof(numbers_numeric))
+print(sum(numbers_numeric))
+
+## First, use `typeof()` to check the data type. If the values are stored as character data, use `as.numeric()` to convert them into numbers. Then use `sum()` to calculate the total. The output is `60`.
+```
+
+```{r}
+## I learned that R has different data types, such as numeric, integer, character, logical, and complex. The functions `typeof()`, `class()`, and `mode()` help identify how values are stored and classified. Conversion functions help change values from one type to another when needed. Understanding data types helps prevent errors when performing calculations or combining strings and numbers.
+```
 
