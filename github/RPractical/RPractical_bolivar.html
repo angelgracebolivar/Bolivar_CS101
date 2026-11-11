@@ -11,9 +11,9 @@
 
 <meta name="author" content="Angel Grace Bolivar" />
 
-<meta name="date" content="2026-09-30" />
+<meta name="date" content="2026-11-11" />
 
-<title>bolivar_CS101</title>
+<title>Untitled</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,209 +350,127 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">bolivar_CS101</h1>
+<h1 class="title toc-ignore">Untitled</h1>
 <h4 class="author">Angel Grace Bolivar</h4>
-<h4 class="date">2026-09-30</h4>
+<h4 class="date">2026-11-11</h4>
 
 </div>
 
 
-<p>PART A — Arithmetic Operations</p>
-<pre class="r"><code># Store values in variables
-a &lt;- 17
-b &lt;- 5
+<p>PART A: Basic Operations</p>
+<p>A1</p>
+<pre class="r"><code>v &lt;- seq(5, 50, 5)
 
-# Basic arithmetic operations
-print(a + b)</code></pre>
-<pre><code>## [1] 22</code></pre>
-<pre class="r"><code>print(a - b)</code></pre>
-<pre><code>## [1] 12</code></pre>
-<pre class="r"><code>print(a * b)</code></pre>
-<pre><code>## [1] 85</code></pre>
-<pre class="r"><code>print(a / b)</code></pre>
-<pre><code>## [1] 3.4</code></pre>
-<pre class="r"><code># Modulus and integer division
-print(a %% b)</code></pre>
+print(v)</code></pre>
+<pre><code>##  [1]  5 10 15 20 25 30 35 40 45 50</code></pre>
+<pre class="r"><code>print(length(v))</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre class="r"><code>print(sum(v))</code></pre>
+<pre><code>## [1] 275</code></pre>
+<pre class="r"><code>print(mean(v))</code></pre>
+<pre><code>## [1] 27.5</code></pre>
+<p>A2</p>
+<pre class="r"><code>w &lt;- rep(c(1, 2, 3), times = 4)
+z &lt;- rep(c(1, 2, 3), each = 4)
+
+print(w)</code></pre>
+<pre><code>##  [1] 1 2 3 1 2 3 1 2 3 1 2 3</code></pre>
+<pre class="r"><code>print(z)</code></pre>
+<pre><code>##  [1] 1 1 1 1 2 2 2 2 3 3 3 3</code></pre>
+<p>A3</p>
+<pre class="r"><code>remainder &lt;- 17%%5
+remainder </code></pre>
 <pre><code>## [1] 2</code></pre>
-<pre class="r"><code>print(a %/% b)</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code># Exponent
-print(2 ^ 10)</code></pre>
+<pre class="r"><code>division &lt;- 17/2
+division</code></pre>
+<pre><code>## [1] 8.5</code></pre>
+<pre class="r"><code>exponent &lt;- 2^10
+exponent</code></pre>
 <pre><code>## [1] 1024</code></pre>
-<pre class="r"><code>## Question 1:
-print(17 / 5)</code></pre>
-<pre><code>## [1] 3.4</code></pre>
-<pre class="r"><code>print(17 %% 5)</code></pre>
-<pre><code>## [1] 2</code></pre>
-<pre class="r"><code>print(17 %/% 5)</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code>## Answer:`17 / 5` gives 3.4 because it shows the decimal result. `17 %% 5` gives 2 because it shows the remainder. `17 %/% 5` gives 3 because it shows the whole-number result.</code></pre>
-<pre class="r"><code>## Question 2:
-print(10 %% 3)</code></pre>
-<pre><code>## [1] 1</code></pre>
-<pre class="r"><code>print(10 %/% 3)</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code>## Answer: I predicted that `10 %% 3` would give 1 and `10 %/% 3` would give 3. My prediction was correct because 3 goes into 10 three whole times, leaving a remainder of 1.</code></pre>
-<p>PART B — Basic Data Types</p>
-<pre class="r"><code># Create variables
-x &lt;- 42
-y &lt;- 42L
-z &lt;- &quot;42&quot;
-w &lt;- TRUE
-v &lt;- 3 + 2i</code></pre>
-<pre class="r"><code>## check typeof()
-typeof(x)</code></pre>
+<pre class="r"><code>print(sqrt(144))</code></pre>
+<pre><code>## [1] 12</code></pre>
+<pre class="r"><code>print(round(pi, 3))</code></pre>
+<pre><code>## [1] 3.142</code></pre>
+<p>A4</p>
+<pre class="r"><code>a &lt;- c(2, 4, 6, 8)
+b &lt;- c(1, 3, 5, 7)
+
+a+b</code></pre>
+<pre><code>## [1]  3  7 11 15</code></pre>
+<pre class="r"><code>a*b</code></pre>
+<pre><code>## [1]  2 12 30 56</code></pre>
+<pre class="r"><code>a&gt;b</code></pre>
+<pre><code>## [1] TRUE TRUE TRUE TRUE</code></pre>
+<pre class="r"><code>sum(a*b)</code></pre>
+<pre><code>## [1] 100</code></pre>
+<p>A5</p>
+<pre class="r"><code>print(paste(&quot;Student-1&quot;, &quot;Student-2&quot;, &quot;Student-3&quot;))</code></pre>
+<pre><code>## [1] &quot;Student-1 Student-2 Student-3&quot;</code></pre>
+<pre class="r"><code>print(typeof(42))</code></pre>
 <pre><code>## [1] &quot;double&quot;</code></pre>
-<pre class="r"><code>typeof(y)</code></pre>
+<pre class="r"><code>print(typeof(42L))</code></pre>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
-<pre class="r"><code>typeof(z)</code></pre>
+<pre class="r"><code>print(typeof(&quot;42&quot;))</code></pre>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>typeof(w)</code></pre>
-<pre><code>## [1] &quot;logical&quot;</code></pre>
-<pre class="r"><code>typeof(v)</code></pre>
+<pre class="r"><code>print(typeof(41i))</code></pre>
 <pre><code>## [1] &quot;complex&quot;</code></pre>
-<pre class="r"><code>## check class()
-class(x)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>class(y)</code></pre>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-<pre class="r"><code>class(z)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>class(w)</code></pre>
+<pre class="r"><code>print(typeof(TRUE))</code></pre>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
-<pre class="r"><code>class(v)</code></pre>
-<pre><code>## [1] &quot;complex&quot;</code></pre>
-<pre class="r"><code>## check mode()
-mode(x)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>mode(y)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>mode(z)</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>mode(w)</code></pre>
-<pre><code>## [1] &quot;logical&quot;</code></pre>
-<pre class="r"><code>mode(v)</code></pre>
-<pre><code>## [1] &quot;complex&quot;</code></pre>
-<pre class="r"><code>## Question 3:
-print(typeof(x))</code></pre>
-<pre><code>## [1] &quot;double&quot;</code></pre>
-<pre class="r"><code>print(typeof(y))</code></pre>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-<pre class="r"><code>## The variable `x` is stored as a double, which is R&#39;s default numeric type. The variable `y` is stored as an integer because the `L` suffix specifies an integer.</code></pre>
-<pre class="r"><code>## Question 4:
-print(typeof(y))</code></pre>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-<pre class="r"><code>print(class(y))</code></pre>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-<pre class="r"><code>print(mode(y))</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>## Answer: Yes, the results can be different. For `y`, `typeof()` and `class()` return `&quot;integer&quot;`, while `mode()` returns `&quot;numeric&quot;` because it groups integers under numeric values.</code></pre>
-<p>PART C — Type Conversion</p>
-<pre class="r"><code>## Convert character to numeric
-num_string &lt;- &quot;123&quot;
+<p>PART B: Data Fraames and Conditional Statements</p>
+<p>B1</p>
+<pre class="r"><code>students &lt;- data.frame(
+  id = 1:8,
+  name = c(&quot;Alice&quot;, &quot;Bruno&quot;, &quot; Chen&quot;, &quot;Dana&quot;, &quot;Elif&quot;, &quot;Farid&quot;, &quot;Grace&quot;,&quot;Hiro&quot;),
+  sex = c(&quot;F&quot;, &quot;M&quot;, &quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;, &quot;F&quot;, &quot;M&quot;),
+  section = c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;B&quot;, &quot;B&quot;, &quot;C&quot;, &quot;A&quot;, &quot;B&quot;),
+  midterm = c(78, 85, 92, 67, 74, 88, 95, 59),
+  final = c(82, 79, 96, 71, 80, 91, 93, 65),
+  attendance = c(95, 88, 100, 72, 90, 85, 98, 60),
+  stringsAsFactors = FALSE
+)</code></pre>
+<p>B2</p>
+<pre class="r"><code>str(students)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    8 obs. of  7 variables:
+##  $ id        : int  1 2 3 4 5 6 7 8
+##  $ name      : chr  &quot;Alice&quot; &quot;Bruno&quot; &quot; Chen&quot; &quot;Dana&quot; ...
+##  $ sex       : chr  &quot;F&quot; &quot;M&quot; &quot;M&quot; &quot;F&quot; ...
+##  $ section   : chr  &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;B&quot; ...
+##  $ midterm   : num  78 85 92 67 74 88 95 59
+##  $ final     : num  82 79 96 71 80 91 93 65
+##  $ attendance: num  95 88 100 72 90 85 98 60</code></pre>
+<pre class="r"><code>dim(students)</code></pre>
+<pre><code>## [1] 8 7</code></pre>
+<pre class="r"><code>names(students)</code></pre>
+<pre><code>## [1] &quot;id&quot;         &quot;name&quot;       &quot;sex&quot;        &quot;section&quot;    &quot;midterm&quot;   
+## [6] &quot;final&quot;      &quot;attendance&quot;</code></pre>
+<pre class="r"><code>summary(students)</code></pre>
+<pre><code>##        id              name          sex         section     midterm     
+##  Min.   :1.00   Length   :8   Length   :8   Length   :8   Min.   :59.00  
+##  1st Qu.:2.75   N.unique :8   N.unique :2   N.unique :3   1st Qu.:72.25  
+##  Median :4.50   N.blank  :0   N.blank  :0   N.blank  :0   Median :81.50  
+##  Mean   :4.50   Min.nchar:4   Min.nchar:1   Min.nchar:1   Mean   :79.75  
+##  3rd Qu.:6.25   Max.nchar:5   Max.nchar:1   Max.nchar:1   3rd Qu.:89.00  
+##  Max.   :8.00                                             Max.   :95.00  
+##      final         attendance    
+##  Min.   :65.00   Min.   : 60.00  
+##  1st Qu.:77.00   1st Qu.: 81.75  
+##  Median :81.00   Median : 89.00  
+##  Mean   :82.12   Mean   : 86.00  
+##  3rd Qu.:91.50   3rd Qu.: 95.75  
+##  Max.   :96.00   Max.   :100.00</code></pre>
+<p>B3</p>
+<pre class="r"><code>students$average &lt;- (students$midterm + students$final) /2
 
-converted_num &lt;- as.numeric(num_string)
-
-print(converted_num)</code></pre>
-<pre><code>## [1] 123</code></pre>
-<pre class="r"><code>print(typeof(converted_num))</code></pre>
-<pre><code>## [1] &quot;double&quot;</code></pre>
-<pre class="r"><code>print(class(converted_num))</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>print(mode(converted_num))</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
-<pre class="r"><code>## Convert numbers to logical
-print(as.logical(0))</code></pre>
-<pre><code>## [1] FALSE</code></pre>
-<pre class="r"><code>print(as.logical(1))</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>## Convert numbers to logical
-bad_string &lt;- &quot;hello123&quot;
-converted_bad &lt;- as.numeric(bad_string)</code></pre>
-<pre><code>## Warning: NAs introduced by coercion</code></pre>
-<pre class="r"><code>print(converted_bad)</code></pre>
-<pre><code>## [1] NA</code></pre>
-<pre class="r"><code>## Question 5:
-## R gives a warning instead of stopping because it allows the program to continue running when a value cannot be converted. It uses `NA` to represent an unavailable value.
-## If I ignore warnings, I might not notice that a value became `NA`. This could cause incorrect calculations or results in my program.</code></pre>
-<pre class="r"><code>## Question 6:
-print(as.logical(2))</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>print(as.logical(-1))</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>## I predict that both expressions will return `TRUE` because both numbers are nonzero.
-## Both expressions return `TRUE`. R converts zero to `FALSE` and nonzero numbers, whether positive or negative, to `TRUE`.</code></pre>
-<p>PART D — Strings, paste(), and paste0()</p>
-<pre class="r"><code>## Print the first and last names
-first_name &lt;- &quot;Juan&quot;
-last_name &lt;- &quot;Dela Cruz&quot;
-
-print(first_name)</code></pre>
-<pre><code>## [1] &quot;Juan&quot;</code></pre>
-<pre class="r"><code>print(last_name)</code></pre>
-<pre><code>## [1] &quot;Dela Cruz&quot;</code></pre>
-<pre class="r"><code>cat(first_name, last_name)</code></pre>
-<pre><code>## Juan Dela Cruz</code></pre>
-<pre class="r"><code>## Combine names using paste() and paste0()
-full_name &lt;- paste(first_name, last_name)
-full_name_no_space &lt;- paste0(first_name, last_name)
-
-print(full_name)</code></pre>
-<pre><code>## [1] &quot;Juan Dela Cruz&quot;</code></pre>
-<pre class="r"><code>print(full_name_no_space)</code></pre>
-<pre><code>## [1] &quot;JuanDela Cruz&quot;</code></pre>
-<pre class="r"><code>## Join names with a dash
-print(paste(first_name, last_name, sep = &quot;-&quot;))</code></pre>
-<pre><code>## [1] &quot;Juan-Dela Cruz&quot;</code></pre>
-<pre class="r"><code>## Combine the name and age
-age &lt;- 21
-
-print(paste0(full_name, &quot; is &quot;, age, &quot; years old.&quot;))</code></pre>
-<pre><code>## [1] &quot;Juan Dela Cruz is 21 years old.&quot;</code></pre>
-<pre class="r"><code>## Question 7
-first_name &lt;- &quot;Juan&quot;
-last_name &lt;- &quot;Dela Cruz&quot;
-
-print(paste(first_name, last_name))</code></pre>
-<pre><code>## [1] &quot;Juan Dela Cruz&quot;</code></pre>
-<pre class="r"><code>print(paste0(first_name, last_name))</code></pre>
-<pre><code>## [1] &quot;JuanDela Cruz&quot;</code></pre>
-<pre class="r"><code>##  `paste()` adds a space between the strings by default, while `paste0()` joins them without adding a separator.</code></pre>
-<pre class="r"><code>## Question 8
-full_name &lt;- &quot;Juan Dela Cruz&quot;
-age &lt;- 21
-
-print(paste0(full_name, &quot; is &quot;, age, &quot; years old.&quot;))</code></pre>
-<pre><code>## [1] &quot;Juan Dela Cruz is 21 years old.&quot;</code></pre>
-<pre class="r"><code>## paste0()` combines the text and number into one string. It automatically converts the number `21` into text when combining them. The output is `&quot;Juan Dela Cruz is 21 years old.&quot;`.</code></pre>
-<p>PART E — Critical Thinking Challenge</p>
-<pre class="r"><code>print(&quot;5&quot; + 5) ## Predict and test</code></pre>
-<pre><code>## Error in `&quot;5&quot; + 5`:
-## ! non-numeric argument to binary operator</code></pre>
-<pre class="r"><code>## Fix the code
-print(as.numeric(&quot;5&quot;) + 5)</code></pre>
-<pre><code>## [1] 10</code></pre>
-<pre class="r"><code>## Question 9
-number_text &lt;- &quot;5&quot;
-number &lt;- as.numeric(number_text)
-
-print(number + 5)</code></pre>
-<pre><code>## [1] 10</code></pre>
-<pre class="r"><code>print(typeof(number))</code></pre>
-<pre><code>## [1] &quot;double&quot;</code></pre>
-<pre class="r"><code>## Explicit conversion makes sure the value has the correct data type before performing calculations. The output is `10`, and the type of `number` is `&quot;double&quot;`. Without conversion, `&quot;5&quot; + 5` causes an error because `&quot;5&quot;` is text.</code></pre>
-<pre class="r"><code>## Question 10
-numbers &lt;- c(&quot;10&quot;, &quot;20&quot;, &quot;30&quot;)
-
-print(typeof(numbers))</code></pre>
-<pre><code>## [1] &quot;character&quot;</code></pre>
-<pre class="r"><code>numbers_numeric &lt;- as.numeric(numbers)
-
-print(typeof(numbers_numeric))</code></pre>
-<pre><code>## [1] &quot;double&quot;</code></pre>
-<pre class="r"><code>print(sum(numbers_numeric))</code></pre>
-<pre><code>## [1] 60</code></pre>
-<pre class="r"><code>## First, use `typeof()` to check the data type. If the values are stored as character data, use `as.numeric()` to convert them into numbers. Then use `sum()` to calculate the total. The output is `60`.</code></pre>
+ print(students)</code></pre>
+<pre><code>##   id  name sex section midterm final attendance average
+## 1  1 Alice   F       A      78    82         95    80.0
+## 2  2 Bruno   M       B      85    79         88    82.0
+## 3  3  Chen   M       C      92    96        100    94.0
+## 4  4  Dana   F       B      67    71         72    69.0
+## 5  5  Elif   F       B      74    80         90    77.0
+## 6  6 Farid   M       C      88    91         85    89.5
+## 7  7 Grace   F       A      95    93         98    94.0
+## 8  8  Hiro   M       B      59    65         60    62.0</code></pre>
 
 
 
