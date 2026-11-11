@@ -89,14 +89,3 @@ dim(students)
 names(students)
 summary(students)
 ```
-
-B3
-```{r}
-students$average <- (students$midterm + students$final) /2
-
- print(students)
-
-```
-
-
-
