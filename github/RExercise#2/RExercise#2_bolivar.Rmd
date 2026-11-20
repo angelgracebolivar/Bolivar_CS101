@@ -1,5 +1,5 @@
 ---
-title: "bolivar_CS101"
+title: "RExercise#2"
 author: "Angel Grace Bolivar"
 date: "2026-09-30"
 output: html_document
