@@ -1,0 +1,188 @@
+---
+title: "The apply Family at Glance"
+author: "Angel Grace Bolivar"
+date: "2026-11-26"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+PART A — Predict the Output
+
+Question 1
+a.
+```{r}
+m <- matrix(1:6, nrow = 2)
+
+# a)
+apply(m, 1, sum)
+# b)
+apply(m, 2, sum)
+# c)
+class(lapply(1:3, function(i) i^2))
+# d)
+sapply(1:3, function(i) i^2)
+# e)
+sapply(c('a', 'bb', 'ccc'), nchar)
+# f)
+mapply(function(x, y) x * y, 1:3, 4:6)
+# g)
+tapply(c(10, 20, 30, 40),
+       c('u', 'v', 'u', 'v'), sum)
+
+## a) The result is 9 and 12 because apply() calculates the sum of each row.
+## b) The result is 3, 7, and 11 because apply() calculates the sum of each column.
+## c) The result is "list" because lapply() always returns a list.
+## d) The result is 1, 4, and 9 because sapply() calculates the square of each number.
+## e) The result is 1, 2, and 3 because nchar() counts the characters in each string.
+## f) The result is 4, 10, and 18 because mapply() multiplies corresponding elements.## a) Find each student's average.
+```
+
+Question 2
+```{r}
+scores <- matrix(c(70, 85, 90,
+                   60, 75, 80,
+                   88, 92, 79),
+                 nrow = 3, byrow = TRUE,
+                 dimnames = list(c('Ana', 'Ben', 'Cara'), c('Math', 'Sci', 'Eng')))
+ 
+temps <- list(Mon = c(30, 32, 31), Tue = c(29, 33), Wed = c(31, 34, 35, 30))
+
+```
+
+b.1
+```{r}
+#(a) 
+student_avg <- apply(scores, 1, mean)
+print(student_avg)
+
+#(b)
+subject_highest <- apply(scores, 2, max)
+print(subject_highest)
+
+#(c) 
+best_subject <- apply(scores, 1, function(x) {
+  names(x)[which.max(x)]
+})
+print(best_subject)
+```
+
+b.2
+```{r}
+temps <- list(
+  Mon = c(30, 32, 31),
+  Tue = c(29, 33),
+  Wed = c(31, 34, 35, 30)
+)
+
+## lapply()
+lapply(temps, mean)
+
+## sapply().
+sapply(temps, length)
+
+## vapply().
+vapply(temps, range, numeric(2))
+
+
+## The range result is a matrix because each day has two values: the minimum and maximum temperature.
+## vapply() combines these values into a matrix because numeric(2) specifies two numeric results.
+```
+
+PART C — Using mapply()
+
+Question 3
+a.
+```{r}
+p <- c(1000, 2000)
+r <- c(0.05, 0.04)
+n <- c(2, 3)
+
+mapply(function(p, r, n) p * (1 + r)^n,
+       p, r, n)
+
+mapply(function(p, r, n) p * (1 + r)^n,
+       p, n,
+       MoreArgs = list(r = 0.045))
+```
+
+Question 4
+a.
+```{r}
+#(a)
+tapply(iris$Sepal.Length, iris$Species, mean)
+
+#(b)
+with(mtcars, table(cyl, am))
+
+#(c)
+tapply(mtcars$mpg, mtcars$cyl, mean, na.rm = TRUE)
+```
+
+Part A - Debugging
+
+Question 5
+a.
+```{r}
+## Incorrect code: sapply(list(a = 1:3, b = 4:6), mean())
+
+## Correct code:
+sapply(list(a = 1:3, b = 4:6), mean)
+
+## The mistake is using mean() instead of mean.
+## sapply() needs the function name without parentheses because it applies the function to each list element.
+```
+
+```{r}
+## Incorrect code: apply(matrix(1:6, nrow = 3), 1, mean)
+
+## Correct code:
+apply(matrix(1:6, nrow = 3), 2, mean)
+
+## The mistake is using 1 instead of 2.
+## Using 1 calculates the mean of each row, while using 2 calculates the mean of each column.
+```
+
+c.
+```{r}
+df <- data.frame(
+  n = c(1, 2),
+  s = c('a', 'b')
+)
+
+## Incorrect code: apply(df, 2, class)
+
+## Correct code:
+lapply(df, class)
+
+## The mistake is using apply() on a data frame with different column types.
+## lapply() is better because it preserves the original data type of each column.
+```
+
+Question 6
+a.
+```{r}
+x <- list(a = 1:3, b = 4:6)
+
+lapply(x, mean)
+sapply(x, mean)
+
+## lapply() applies a function to each element and always returns a list.
+## sapply() also applies a function to each element but tries to simplify the result into a vector or matrix.
+## I would choose vapply() when I want to specify the expected type and length of the output.It helps prevent unexpected results because it checks the expected output.
+```
+
+b.
+```{r}
+x <- c(10, 20, 30, 40)
+g <- c('u', 'v', 'u', 'v')
+
+tapply(x, g, mean)
+
+## The tapply() function gives the same group means as lapply(split(x, g), mean).
+```
+
